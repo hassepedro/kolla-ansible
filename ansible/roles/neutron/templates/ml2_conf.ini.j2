@@ -3,7 +3,7 @@
 # Changing type_drivers after bootstrap can lead to database inconsistencies
 type_drivers = {{ neutron_type_drivers }}
 tenant_network_types = {{ neutron_tenant_network_types }}
-
+external_network_type = vlan
 {% if neutron_plugin_agent == "openvswitch" %}
 {% if enable_hyperv | bool %}
 mechanism_drivers = openvswitch,hyperv
@@ -45,9 +45,9 @@ password = {{ onos_password }}
 
 [ml2_type_vlan]
 {% if enable_ironic | bool %}
-network_vlan_ranges = physnet1
+network_vlan_ranges = physnet1:1:4095
 {% else %}
-network_vlan_ranges =
+network_vlan_ranges = physnet1:1:4095
 {% endif %}
 
 [ml2_type_flat]

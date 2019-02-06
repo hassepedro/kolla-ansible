@@ -62,6 +62,8 @@ available_filters = blazarnova.scheduler.filters.blazar_filter.BlazarFilter
 enabled_filters = RetryFilter,AvailabilityZoneFilter,ComputeFilter,ComputeCapabilitiesFilter,ImagePropertiesFilter,ServerGroupAntiAffinityFilter,ServerGroupAffinityFilter,BlazarFilter
 {% endif %}
 
+force_config_drive = true
+
 [api]
 use_forwarded_for = true
 
