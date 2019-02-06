@@ -45,16 +45,16 @@ password = {{ onos_password }}
 
 [ml2_type_vlan]
 {% if enable_ironic | bool %}
-network_vlan_ranges = physnet1:1:4095
+network_vlan_ranges = physnet1:1:4094
 {% else %}
-network_vlan_ranges = physnet1:1:4095
+network_vlan_ranges = physnet1:1:4094
 {% endif %}
 
 [ml2_type_flat]
 {% if enable_ironic | bool %}
 flat_networks = *
 {% else %}
-flat_networks = {% for bridge in neutron_bridge_name.split(',') %}physnet{{ loop.index0 + 1 }}{% if not loop.last %},{% endif %}{% endfor %}
+flat_networks = *
 {% endif %}
 
 [ml2_type_vxlan]
